@@ -54,4 +54,42 @@ class RegularExpresionsTests {
 		assertFalse("301".matches(regex));
 		assertFalse("330".matches(regex));
 	}
+	@Test
+	void ipOctetTest() {
+		String regex = RegularExpresions.ipOctet();
+		assertTrue("0".matches(regex));
+		assertTrue("00".matches(regex));
+		assertTrue("000".matches(regex));
+		assertTrue("10".matches(regex));
+		assertTrue("19".matches(regex));
+		assertTrue("199".matches(regex));
+		assertTrue("009".matches(regex));
+		assertTrue("255".matches(regex));
+		assertTrue("250".matches(regex));
+		assertTrue("249".matches(regex));
+		assertFalse("-0".matches(regex));
+		assertFalse("00 ".matches(regex));
+		assertFalse("0000".matches(regex));
+		assertFalse("10?".matches(regex));
+		assertFalse("1900".matches(regex));
+		assertFalse("299".matches(regex));
+		assertFalse("00a".matches(regex));
+		assertFalse("256".matches(regex));
+		assertFalse("260".matches(regex));
+		assertFalse("300".matches(regex));
+		
+	}
+	@Test
+	void mobileIsraelPhoneTest() {
+		String regex = RegularExpresions.mobileIsraelPhone();
+		assertTrue("+972-58-778-44-71".matches(regex));
+		assertTrue("+972-587784471".matches(regex));
+		assertTrue("058-778-44-71".matches(regex));
+		assertTrue("058-7784471".matches(regex));
+		assertFalse("+972-58-778-44-7".matches(regex));
+		assertFalse("+9-72-58-778-44-71".matches(regex));
+		assertFalse("+72-58-778-44-71".matches(regex));
+		assertFalse("+972-58-778-4-71".matches(regex));
+		assertFalse("58-778-44-71".matches(regex));
+	}
 }

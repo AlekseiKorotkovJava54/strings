@@ -11,9 +11,11 @@ public class RegularExpresions {
 		return regex;
 	}
 	public static String ipOctet() {
-		//TODO
-		//string 1-3 simbol presenting number 0(00)(000)-255 
-		return null;
+		String regex = "2[0-5][0-5]|2[0-4][0-9]|[0-1]\\d\\d|[0-9]\\d?";
+		return regex;
 	}
-	
+	public static String mobileIsraelPhone() {
+		String regex = "(\\+972-|0)5\\d-?\\d\\d\\d-?\\d\\d-?\\d\\d";
+		return regex;
+	}
 }
