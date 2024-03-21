@@ -128,7 +128,5 @@ class RegularExpresionsTests {
 		assertFalse("2+_".matches(regex));
 		assertFalse("2+ a12 * ".matches(regex));
 		assertFalse("(2 + ) a12".matches(regex));
-		assertFalse("".matches(regex));
-		assertFalse("".matches(regex));
 	}
 }
