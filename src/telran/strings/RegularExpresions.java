@@ -40,10 +40,13 @@ public class RegularExpresions {
 		return "(\\s*\\d+\\s*)";
 	}
 	public static String arithmeticExpression() {
-		//TODO
-		//operand - any number or Java variable name
-		//operation - the same as for simpleArithmeticExpression
-		//brackets '(' ')' are allowed
-		return null;
+		String operation = operationExp();
+		String operand = doubleNumberExp();
+		return String.format("%1$s(%2$s%1$s)*",operand, operation);
+	}
+	public static String doubleNumberExp() {
+		String doubleNumber = "(\\d+(\\.\\d+)?)";
+		String javaVariable = javaVariable();
+		return String.format("[\\s(]*(%s|%s)[\\s)]*",doubleNumber, javaVariable);
 	}
 }
